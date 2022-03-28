@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import Button, Text, font
+from tkinter import Button, Menu, Text, font
 from turtle import window_width
 
 from setuptools import Command
@@ -22,6 +22,22 @@ class Calculator:
         self.window.geometry("400x667")
         self.window.resizable(0, 0)
         self.window.title("Calculator")
+
+        #help
+        def menu_command ():
+            pass
+        def exit_command ():
+            self.window.destroy()
+        my_menu = Menu(self.window)
+        self.window.config(menu=my_menu) 
+        help_menu = Menu(my_menu)
+        my_menu.add_cascade(label="help", menu=help_menu)
+        help_menu.add_command(label="مساعدة؟", command=menu_command)
+
+        #exit
+        exit_menu = Menu(my_menu)
+        my_menu.add_cascade(label="exit", menu=exit_menu)
+        exit_menu.add_command(label="خروج", command=exit_command)
         self.window.configure(background='#F8FAFF')
 
         self.total_expression = ""
