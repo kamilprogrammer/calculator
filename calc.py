@@ -17,13 +17,14 @@ LABEL_COLOR = "#25265E"
 
 
 class Calculator:
+    #window root1
     def __init__(self):
         self.window = tk.Tk()
         self.window.geometry("400x667")
         self.window.resizable(0, 0)
         self.window.title("Calculator")
 
-        #help
+        #help-menu
         def menu_command ():
             pass
         def exit_command ():
@@ -34,7 +35,7 @@ class Calculator:
         my_menu.add_cascade(label="help", menu=help_menu)
         help_menu.add_command(label="مساعدة؟", command=menu_command)
 
-        #exit
+        #exit-menu
         exit_menu = Menu(my_menu)
         my_menu.add_cascade(label="exit", menu=exit_menu)
         exit_menu.add_command(label="خروج", command=exit_command)
@@ -46,6 +47,7 @@ class Calculator:
 
         self.total_label, self.label = self.create_display_labels()
 
+        #----calc digits:
         self.digits = {
             7: (1, 1), 8: (1, 2), 9: (1, 3),
             4: (2, 1), 5: (2, 2), 6: (2, 3),
@@ -116,6 +118,9 @@ class Calculator:
         self.current_expression = ""
         self.update_total_label()
         self.update_label()
+    
+
+    #buttons
 
     def create_operator_buttons(self):
         i = 0
@@ -223,6 +228,7 @@ class Calculator:
 
 
     def madeby(self):
+        #------------window3-root2
         window3 = tk.Tk()
         window3.geometry('200x200')
         window3.title('Made by')
@@ -256,3 +262,4 @@ class Calculator:
 if __name__ == "__main__":
     calc = Calculator()
     calc.run()
+    #I love that.
