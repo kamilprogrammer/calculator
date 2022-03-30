@@ -20,6 +20,7 @@ class Calculator:
     #window root1
     def __init__(self):
         self.window = tk.Tk()
+        self.window.iconbitmap('C:\\xampp\\htdocs\\calc\\calculator\\img-01.jpg')
         self.window.geometry("400x667")
         self.window.resizable(0, 0)
         self.window.title("Calculator")
