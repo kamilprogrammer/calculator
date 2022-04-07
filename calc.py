@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import Button, Menu, Text, font
+from tkinter import *
+"why im here"
 
 
 from setuptools import Command
