@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import Button, Menu, Text, font
-from turtle import window_width
+
 
 from setuptools import Command
 
