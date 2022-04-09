@@ -230,14 +230,14 @@ class Calculator:
 
 
 
-    def madeby(self):
+    def sqaure2(self):
         self.current_expression = str(eval(f"{self.current_expression}"))
         self.update_label()
 
 
     def made_by(self):
         button = tk.Button(self.buttons_frame, text="مساحة\n المربع",width=4, bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
-                           borderwidth=0, command=self.madeby)
+                           borderwidth=0, command=self.square2)
         button.grid(row=3, column=5, sticky=tk.NSEW)    
 
 
