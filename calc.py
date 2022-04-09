@@ -208,14 +208,14 @@ class Calculator:
 
 
     
-    def help(self):
-        self.current_expression = str(eval(f"{self.current_expression}"))
+    def square1(self):
+        self.current_expression = str(eval(f"{self.current_expression}*4"))
         self.update_label()
     
 
     def helpmain(self):
-        button = Button(self.buttons_frame, text='محيط\n المربع', width=4, bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
-                        borderwidth=0, command=help)
+        button = Button(self.buttons_frame, text='محيط\nالمربع', width=4, bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
+                        borderwidth=0, command=self.square1)
         button.grid(row=2, column=5, sticky=tk.NSEW)       
 
 
