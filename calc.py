@@ -1,8 +1,6 @@
 import tkinter as tk
-from tkinter import Button, Menu, Text, font
-from tkinter import *
-"why im here realy imm jsut tring to make a calc okay no proplem i'll make an algorithms video"
-
+from tkinter import Button, Text, font
+from turtle import window_width
 
 from setuptools import Command
 
@@ -19,30 +17,13 @@ LABEL_COLOR = "#25265E"
 
 
 class Calculator:
-    #window root1
     def __init__(self):
         self.window = tk.Tk()
-        self.window.iconbitmap('C:\\xampp\\htdocs\\calc\\calculator\\img-01.jpg')
         self.window.geometry("400x667")
         self.window.resizable(0, 0)
         self.window.title("Calculator")
-
-        #help-menu
-        def menu_command ():
-            pass
-        def exit_command ():
-            self.window.destroy()
-        my_menu = Menu(self.window)
-        self.window.config(menu=my_menu) 
-        help_menu = Menu(my_menu)
-        my_menu.add_cascade(label="help", menu=help_menu)
-        help_menu.add_command(label="مساعدة؟", command=menu_command)
-
-        #exit-menu
-        exit_menu = Menu(my_menu)
-        my_menu.add_cascade(label="exit", menu=exit_menu)
-        exit_menu.add_command(label="خروج", command=exit_command)
         self.window.configure(background='#F8FAFF')
+        self.window.iconbitmap(r"favicon (2).ico")
 
         self.total_expression = ""
         self.current_expression = ""
@@ -50,7 +31,6 @@ class Calculator:
 
         self.total_label, self.label = self.create_display_labels()
 
-        #----calc digits:
         self.digits = {
             7: (1, 1), 8: (1, 2), 9: (1, 3),
             4: (2, 1), 5: (2, 2), 6: (2, 3),
@@ -70,8 +50,9 @@ class Calculator:
         self.create_radius1_button()
         self.create_radius2_button()
         self.create_equals2_button()
-        self.helpmain()
-        self.made_by()
+        self.create_cube_button()
+        self.create_square_button()
+        self.create_square1_button()
         self.bind_keys()
 
     def bind_keys(self):
@@ -121,9 +102,6 @@ class Calculator:
         self.current_expression = ""
         self.update_total_label()
         self.update_label()
-    
-
-    #buttons
 
     def create_operator_buttons(self):
         i = 0
@@ -144,13 +122,13 @@ class Calculator:
                            borderwidth=0, command=self.clear)
         button.grid(row=0, column=1, sticky=tk.NSEW)
 
-    def square(self):
+    def square1(self):
         self.current_expression = str(eval(f"{self.current_expression}**2"))
         self.update_label()
 
-    def create_square_button(self):
+    def create_square1_button(self):
         button = tk.Button(self.buttons_frame, text="x\u00b2", bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
-                           borderwidth=0, command=self.square)
+                           borderwidth=0, command=self.square1)
         button.grid(row=0, column=2, sticky=tk.NSEW)
 
     def sqrt(self):
@@ -208,14 +186,14 @@ class Calculator:
 
 
     
-    def square1(self):
+    def cube(self):
         self.current_expression = str(eval(f"{self.current_expression}*4"))
         self.update_label()
     
 
-    def helpmain(self):
-        button = Button(self.buttons_frame, text='محيط\nالمربع', width=4, bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
-                        borderwidth=0, command=self.square1)
+    def create_cube_button(self):
+        button = Button(self.buttons_frame, text='حجم\n المكعب', width=4, bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
+                        borderwidth=0, command=self.cube)
         button.grid(row=2, column=5, sticky=tk.NSEW)       
 
 
@@ -228,15 +206,12 @@ class Calculator:
                            borderwidth=0, command=self.rad1)
         button.grid(row=0, column=5, sticky=tk.NSEW)
 
-
-
-    def sqaure2(self):
-        self.current_expression = str(eval(f"{self.current_expression}"))
+    def square2(self):
+        self.current_expression = str(eval(f"{self.current_expression}*4"))
         self.update_label()
 
-
-    def made_by(self):
-        button = tk.Button(self.buttons_frame, text="مساحة\n المربع",width=4, bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
+    def create_square_button(self):
+        button = tk.Button(self.buttons_frame, text="محيط \nالمربع",width=4, bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
                            borderwidth=0, command=self.square2)
         button.grid(row=3, column=5, sticky=tk.NSEW)    
 
@@ -255,9 +230,7 @@ class Calculator:
     def run(self):
         self.window.mainloop()
 
-#good bye
 
 if __name__ == "__main__":
     calc = Calculator()
     calc.run()
-    #I love that.  
