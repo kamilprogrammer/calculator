@@ -49,8 +49,8 @@ class Calculator:
         self.create_radius1_button()
         self.create_radius2_button()
         self.create_equals2_button()
-        self.helpmain()
-        self.made_by()
+        self.create_cube_button()
+        self.create_square_button()
         self.bind_keys()
 
     def bind_keys(self):
@@ -120,13 +120,13 @@ class Calculator:
                            borderwidth=0, command=self.clear)
         button.grid(row=0, column=1, sticky=tk.NSEW)
 
-    def square(self):
+    def square1(self):
         self.current_expression = str(eval(f"{self.current_expression}**2"))
         self.update_label()
 
     def create_square_button(self):
         button = tk.Button(self.buttons_frame, text="x\u00b2", bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
-                           borderwidth=0, command=self.square)
+                           borderwidth=0, command=self.square1)
         button.grid(row=0, column=2, sticky=tk.NSEW)
 
     def sqrt(self):
@@ -184,14 +184,14 @@ class Calculator:
 
 
     
-    def help(self):
-        self.current_expression = str(eval(f"{self.current_expression}**2"))
+    def cube(self):
+        self.current_expression = str(eval(f"{self.current_expression}*4"))
         self.update_label()
     
 
-    def helpmain(self):
-        button = Button(self.buttons_frame, text='مساعدة', width=4, bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
-                        borderwidth=0, command=help)
+    def create_cube_button(self):
+        button = Button(self.buttons_frame, text='حجم\n المكعب', width=4, bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
+                        borderwidth=0, command=self.cube)
         button.grid(row=2, column=5, sticky=tk.NSEW)       
 
 
@@ -204,30 +204,23 @@ class Calculator:
                            borderwidth=0, command=self.rad1)
         button.grid(row=0, column=5, sticky=tk.NSEW)
 
+    def square2(self):
+        self.current_expression = str(eval(f"{self.current_expression}*4"))
+        self.update_label()
 
-
-    def madeby(self):
-        window3 = tk.Tk()
-        window3.geometry('200x200')
-        window3.title('Made by')
-        window3.resizable(0, 0)
-        t1= Button(window3, text='made by kamil & Alfajer school')
-        t1.place(x=10, y=70)
-        window3.mainloop()
-
-    def made_by(self):
-        button = tk.Button(self.buttons_frame, text="  made \n by",width=4, bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
-                           borderwidth=0, command=self.madeby)
+    def create_square_button(self):
+        button = tk.Button(self.buttons_frame, text="محيط \nالمربع",width=4, bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
+                           borderwidth=0, command=self.square2)
         button.grid(row=3, column=5, sticky=tk.NSEW)    
 
 
     def rad2(self):
-        self.current_expression = str(eval(f"{self.current_expression}"))
+        self.current_expression = str(eval(f"{self.current_expression}*2*3.14"))
         self.update_label()
 
     def create_radius2_button(self):
         button = tk.Button(self.buttons_frame, text="محيط \n الدائرة ",width=4, bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
-                           borderwidth=0, command=self.rad1)
+                           borderwidth=0, command=self.rad2)
         button.grid(row=1, column=5, sticky=tk.NSEW)
 
              
