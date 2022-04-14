@@ -23,6 +23,7 @@ class Calculator:
         self.window.resizable(0, 0)
         self.window.title("Calculator")
         self.window.configure(background='#F8FAFF')
+        self.window.iconbitmap(r"c:\xampp\htdocs\calc\favicon (2).ico")
 
         self.total_expression = ""
         self.current_expression = ""
@@ -51,6 +52,7 @@ class Calculator:
         self.create_equals2_button()
         self.create_cube_button()
         self.create_square_button()
+        self.create_square1_button()
         self.bind_keys()
 
     def bind_keys(self):
@@ -124,7 +126,7 @@ class Calculator:
         self.current_expression = str(eval(f"{self.current_expression}**2"))
         self.update_label()
 
-    def create_square_button(self):
+    def create_square1_button(self):
         button = tk.Button(self.buttons_frame, text="x\u00b2", bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
                            borderwidth=0, command=self.square1)
         button.grid(row=0, column=2, sticky=tk.NSEW)
