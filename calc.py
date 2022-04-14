@@ -23,7 +23,7 @@ class Calculator:
         self.window.resizable(0, 0)
         self.window.title("Calculator")
         self.window.configure(background='#F8FAFF')
-        self.window.iconbitmap(r"favicon (2).ico")
+        self.window.iconbitmap()
 
         self.total_expression = ""
         self.current_expression = ""
