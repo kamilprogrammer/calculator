@@ -187,7 +187,7 @@ class Calculator:
 
     
     def cube(self):
-        self.current_expression = str(eval(f"{self.current_expression}*4"))
+        self.current_expression = str(eval(f"{self.current_expression}**3"))
         self.update_label()
     
 
